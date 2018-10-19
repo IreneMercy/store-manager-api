@@ -16,3 +16,7 @@ class AddProduct(unittest.TestCase):
     def test_post_Products(self):
         result=self.app.post('/products', data=json.dumps(self.new_product), content_type="application/json")
         self.assertEqual(result.status_code, 201)
+
+    def test_get_products(self):
+        result=self.app.get('/products', content_type="application/json")
+        self.assertEqual(result.status_code, 200)
