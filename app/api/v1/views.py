@@ -6,9 +6,9 @@ api = Api(app)
 
 product_details = []
 class Products(Resource):
- def test_get_products(self):
     def get(self):
         return make_response(jsonify({"product_details":product_details}), 200)
+
     def post(self):
         data = request.get_json()
         id=len(product_details)+1
@@ -28,8 +28,14 @@ class Products(Resource):
                     "Price":price,
                     "Expected Returns":expected_returns
         }
+
+        product_details.append(new_product)
+        return make_response( jsonify({"product details":product_details}), 201)
+
 sale_records=[]
 class SaleRecord(Resource):
+    def get(self):
+        return make_response(jsonify({"sale_records":sale_records}), 200)
     def post(self):
         data = request.get_json()
         id=len(sale_records)+1
@@ -50,6 +56,3 @@ class SaleRecord(Resource):
 
         sale_records.append(new__sale_order)
         return make_response( jsonify({"sale records":sale_records}), 201)
-
-        product_details.append(new_product)
-        return make_response( jsonify({"product details":product_details}), 201)
