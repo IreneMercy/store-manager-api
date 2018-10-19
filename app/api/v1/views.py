@@ -6,6 +6,7 @@ api = Api(app)
 
 product_details = []
 class Products(Resource):
+ def test_get_products(self):
     def get(self):
         return make_response(jsonify({"product_details":product_details}), 200)
     def post(self):
