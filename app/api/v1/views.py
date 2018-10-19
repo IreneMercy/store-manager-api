@@ -30,7 +30,7 @@ class Products(Resource):
         }
 sale_records=[]
 class SaleRecord(Resource):
-        def post(self):
+    def post(self):
         data = request.get_json()
         id=len(sale_records)+1
         product_category = data['Category']
