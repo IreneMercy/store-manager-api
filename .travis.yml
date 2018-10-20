@@ -1,0 +1,20 @@
+language :
+- python
+
+python : 
+- "3.6"
+cache: 
+- pip
+
+#command to install dependencies
+install:
+- pip install -r requirements.txt
+- pip install coverage codev
+- pip install nose
+
+#run tests
+Scripts :
+ - nosetests --with-coverage --cover-package=app && coverage report
+
+after_success:
+- coveralls
