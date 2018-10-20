@@ -14,12 +14,11 @@ class Signup(Resource):
         username = ['Username']
         password = data['Password']
 
-
         new_user = {
             "Username":username,
             "Password":password,
             
-        }
+                   }
         signup_details.append(new_user)
         return jsonify({"signup_details":signup_details}, 200)
 
