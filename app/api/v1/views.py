@@ -28,13 +28,12 @@ class Login(Resource):
         data = request.get_json()
         username = data['Username']
         password = data['Password']
-        confirm_password = data['Confirm Password']
+     
 
 
         new_user = {
             "Username":username,
             "Password":password,
-            "Confirm Password":confirm_password
             
 
         }
