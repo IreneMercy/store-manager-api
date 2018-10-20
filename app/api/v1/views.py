@@ -39,7 +39,7 @@ class Login(Resource):
 
         }
         login_details.append(new_user)
-        return make_response(jsonify({"login_details":login_details}, 200))
+        return make_response(jsonify({"login details":login_details}, 200))
     
 product_details = []
 
