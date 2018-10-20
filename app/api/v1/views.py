@@ -27,9 +27,11 @@ class Login(Resource):
         username = data['Username']
         password = data['Password']
 
+
         new_user = {
             "Username":username,
             "Password":password,
+
         }
         login_details.append(new_user)
         return make_response(jsonify({"login_details":login_details}, 201))
