@@ -12,31 +12,17 @@ signup_details = []
 class Signup(Resource):
     def post(self):
         data = request.get_json()
-
-        username = data['Username']
-        password = data['Password']
-        confirm_password = data['Confirm password']
-
         username = ['Username']
         password = data['Password']
-
 
 
         new_user = {
             "Username":username,
             "Password":password,
-
-            "Confirm Password":confirm_password
-            
-        }
-        signup_details.append(new_user)
-        return jsonify({"signup_details":signup_details}, 201)
-
             
         }
         signup_details.append(new_user)
         return jsonify({"signup_details":signup_details}, 200)
-
 
 login_details = []
 class Login(Resource):
@@ -44,29 +30,12 @@ class Login(Resource):
         data = request.get_json()
         username = data['Username']
         password = data['Password']
-
-
      
 
 
         new_user = {
             "Username":username,
             "Password":password,
-
-        }
-        login_details.append(new_user)
-        return make_response(jsonify({"login_details":login_details}, 201))
-    
-product_details = []
-
-
-
-app = Flask (__name__)
-api = Api(app)
-
-product_details = []
-
-
             
 
         }
@@ -83,7 +52,6 @@ app = Flask (__name__)
 api = Api(app)
 
 product_details = []
-
 
 class Products(Resource):
     def get(self):
