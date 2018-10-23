@@ -13,19 +13,48 @@ class AddProduct(unittest.TestCase):
                             "Quantity" : 782,
                             "Price" : 1200
                             }
+
         self.new_sale_order={
                             "Category":"Max",
                             "Name":"Fox",
                             "Quantity":6,
                             "Price":1000
                         }
+
+        self.new_user = {
+                      "Username":"Irene",
+                      "Password":"12345",
+
+                     }
+        self.new_user = {
+            "Username":"Irene",
+            "Password":12345,
+
+        }
+
+
+    def test_post_Signup(self):
+        result=self.app.post('/signup', data=json.dumps(self.new_user), content_type="application/json")
+        self.assertEqual(result.status_code, 200)
+    def test_post_Login(self):
+        result=self.app.post('/login', data=json.dumps(self.new_user), content_type="application/json")
+        self.assertEqual(result.status_code, 200)
+
+
+
     def test_post_Products(self):
         result=self.app.post('/products', data=json.dumps(self.new_product), content_type="application/json")
         self.assertEqual(result.status_code, 201)
 
     def test_get_products(self):
         result=self.app.get('/products', content_type="application/json")
+
+
         self.assertEqual(result.status_code, 200)
+
+
+        self.assertEqual(result.status_code, 200)
+
 
 
     def test_get_specificproduct(self):
@@ -41,6 +70,11 @@ class AddProduct(unittest.TestCase):
         result=self.app.get('/salerecords', content_type="application/json")
 
         self.assertEqual(result.status_code, 200)
+
+
+
+        self.assertEqual(result.status_code, 200)
+
 
 
     def test_get_SpecificSale(self):
