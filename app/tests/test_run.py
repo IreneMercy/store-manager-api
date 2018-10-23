@@ -42,5 +42,11 @@ class AddProduct(unittest.TestCase):
 
         self.assertEqual(result.status_code, 200)
 
+
+    def test_get_SpecificSale(self):
+        result=self.app.get('/salerecords/2', content_type="application/json")
         self.assertEqual(result.status_code, 200)
+
+        self.assertEqual(result.status_code, 200)
+
 
