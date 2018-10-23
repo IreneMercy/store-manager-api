@@ -94,6 +94,16 @@ class SpecificProduct(Resource):
         return make_response( jsonify({"product details":product_details}), 201)
 
 
+class SpecificProduct(Resource):
+    def get(self, id):
+        for product in product_details:
+            if product['id'] == id:
+                return make_response(jsonify({"product_details":product}), 200)
+        else:
+            return make_response(jsonify({"status" : "Ok",
+                                         "Message" : "No product with that id"}))
+
+
 sale_records=[]
 class SaleRecord(Resource):
     def get(self):
@@ -127,7 +137,11 @@ class SpecificSale(Resource):
                 return make_response(jsonify({"sale_records":sale}), 200)
         else:
             return make_response(jsonify({"status":"Ok",
+
                                           "Message":"No sale with that id"}))
 
         return make_response( jsonify({"sale records":sale_records}), 201)
+
+
+                                          "Message":"No sale with that id"}))
 
