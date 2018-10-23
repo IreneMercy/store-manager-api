@@ -1,4 +1,5 @@
 
+
 from flask import Flask, jsonify,request, make_response
 from flask_restful import Resource, Api
 
@@ -42,6 +43,15 @@ class Login(Resource):
     
 product_details = []
 
+
+from flask import Flask, jsonify,request, make_response
+from flask_restful import Resource, Api
+
+app = Flask (__name__)
+api = Api(app)
+
+product_details = []
+
 class Products(Resource):
     def get(self):
         return make_response(jsonify({"product_details":product_details}), 200)
@@ -67,7 +77,11 @@ class Products(Resource):
         }
 
         product_details.append(new_product)
+
         return make_response( jsonify({"product_details":product_details}), 201)
+
+
+        return make_response( jsonify({"product details":product_details}), 201)
 
 
 class SpecificProduct(Resource):
