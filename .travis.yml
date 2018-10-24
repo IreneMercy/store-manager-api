@@ -6,7 +6,7 @@ python :
 
 #command to install dependencies
 install:
-- pip install  requirements
+- pip install > requirements.txt
 
 
 
