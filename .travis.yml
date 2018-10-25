@@ -11,8 +11,8 @@ install:
 
 
 #run tests
-# Scripts :
-# - pytest --cov-report term-missing --cov=app
+Scripts :
+- pytest
 
 after_success:
 - coveralls
