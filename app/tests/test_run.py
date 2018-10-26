@@ -22,6 +22,16 @@ class AddProduct(unittest.TestCase):
                         }
 
         self.new_user = {
+
+                        "Username":"@IreneMercy",
+                        "Password":"p4ssw0rd"
+                        }
+
+        self.new_user = {
+                    "Username":"@IreneMercy",
+                    "Password":"p4ssw0rd"
+                    }
+
                       "Username":"Irene",
                       "Password":"12345",
 
@@ -33,13 +43,14 @@ class AddProduct(unittest.TestCase):
         }
 
 
+
     def test_post_Signup(self):
         result=self.app.post('/signup', data=json.dumps(self.new_user), content_type="application/json")
         self.assertEqual(result.status_code, 200)
+
     def test_post_Login(self):
         result=self.app.post('/login', data=json.dumps(self.new_user), content_type="application/json")
         self.assertEqual(result.status_code, 200)
-
 
 
     def test_post_Products(self):
@@ -68,6 +79,13 @@ class AddProduct(unittest.TestCase):
 
     def test_get_SaleRecords(self):
         result=self.app.get('/salerecords', content_type="application/json")
+
+        self.assertEqual(result.status_code, 200)
+
+    def test_get_SpecificSale(self):
+        result=self.app.get('/salerecords/2', content_type="application/json")
+        self.assertEqual(result.status_code, 200)
+
 
         self.assertEqual(result.status_code, 200)
 

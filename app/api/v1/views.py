@@ -1,5 +1,51 @@
 
 
+
+from flask import Flask, jsonify,request, make_response
+from flask_restful import Resource, Api
+
+
+
+app = Flask (__name__)
+api = Api(app)
+
+signup_details = []
+class Signup(Resource):
+    def post(self):
+        data = request.get_json()
+        username = ['Username']
+        password = data['Password']
+
+        new_user = {
+            "Username":username,
+            "Password":password,
+            
+                   }
+        signup_details.append(new_user)
+        return jsonify({"signup_details":signup_details}, 200)
+
+login_details = []
+class Login(Resource):
+    def post(self):
+        data = request.get_json()
+        username = data['Username']
+        password = data['Password']
+     
+
+
+        new_user = {
+            "Username":username,
+            "Password":password,
+            
+
+        }
+        login_details.append(new_user)
+        return make_response(jsonify({"login_details":login_details}, 200))
+    
+product_details = []
+
+
+
 from flask import Flask, jsonify,request, make_response
 from flask_restful import Resource, Api
 
@@ -45,6 +91,7 @@ class Login(Resource):
 product_details = []
 
 
+
 from flask import Flask, jsonify,request, make_response
 from flask_restful import Resource, Api
 
@@ -52,6 +99,7 @@ app = Flask (__name__)
 api = Api(app)
 
 product_details = []
+
 
 class Products(Resource):
     def get(self):
@@ -82,6 +130,7 @@ class Products(Resource):
         return make_response( jsonify({"product_details":product_details}), 201)
 
 
+
 class SpecificProduct(Resource):
     def get(self, id):
         for product in product_details:
@@ -90,6 +139,7 @@ class SpecificProduct(Resource):
         else:
             return make_response(jsonify({"status" : "Ok",
                                          "Message" : "No product with that id"}))
+
 
         return make_response( jsonify({"product details":product_details}), 201)
 
